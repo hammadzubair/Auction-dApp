@@ -14,8 +14,7 @@ export default function Auction({ validators }: AuctionProps) {
   const [blockfrostAPIKey, setBlockfrostAPIKey] = useState<string>("");
   const [object, setObject] = useState<string>("");
   const [deadline, setDeadline] = useState<string>("");
-  const [parameterizedContracts, setParameterizedContracts] =
-    useState<AppliedValidators | null>(null);
+  const [parameterizedContracts, setParameterizedContracts] = useState<AppliedValidators | null>(null);
   const [bidAmount, setBidAmount] = useState<string | undefined>();
   const [auctionTxHash, setAuctionTxHash] = useState<string | undefined>(undefined);
   const [waitingAuctionTx, setWaitingAuctionTx] = useState<boolean>(false);
@@ -92,7 +91,7 @@ export default function Auction({ validators }: AuctionProps) {
     }
 
     setWaitingAuctionTx(true);
-    console.log('Creating auction with details:', { bidAmount, object, deadline });
+    console.log('Creating auction with details:', { object, deadline });
 
     try {
       const auctionDatum = Data.to(
@@ -141,6 +140,68 @@ export default function Auction({ validators }: AuctionProps) {
       }, 3000);
     } catch (error) {
       console.error('Error creating auction:', error);
+      setWaitingAuctionTx(false);
+    }
+  };
+
+  const startAuction = async (e: Event) => {
+    e.preventDefault();
+
+    if (!lucid) {
+      console.error('Lucid is not initialized');
+      return;
+    }
+
+    setWaitingAuctionTx(true);
+    console.log('Starting auction with details:', { object, deadline });
+
+    try {
+      const startDatum = Data.to(
+        new Constr(1, [
+          fromText(object),
+          BigInt(deadline),
+          new Constr(1, []), // STARTED status
+          new Constr(1, []), // Initial bidder is seller
+          BigInt(1000000), // Starting amount is 1 ADA
+        ])
+      );
+      console.log('Start datum created:', startDatum);
+
+      const utxos = await lucid.wallet.getUtxos();
+      console.log('Fetched UTXOs:', utxos);
+
+      if (!utxos || utxos.length === 0) {
+        throw new Error("No UTXOs available in the wallet. Please ensure the wallet has sufficient funds.");
+      }
+
+      const utxo = utxos[0];
+      console.log('Using UTXO:', utxo);
+
+      const tx = await lucid
+        .newTx()
+        .collectFrom([utxo])
+        .payToContract(parameterizedContracts!.auctionAddress, { inline: startDatum }, { lovelace: BigInt(1000000) })
+        .complete();
+      console.log('Transaction constructed:', tx);
+
+      const txSigned = await tx.sign().complete();
+      console.log('Transaction signed:', txSigned);
+
+      const txHash = await txSigned.submit();
+      console.log('Transaction submitted:', txHash);
+
+      const success = await lucid.awaitTx(txHash);
+      console.log('Transaction success:', success);
+
+      setTimeout(() => {
+        setWaitingAuctionTx(false);
+
+        if (success) {
+          setAuctionTxHash(txHash);
+        }
+      }, 3000);
+    } catch (error) {
+      console.error('Error starting auction:', error);
       setWaitingAuctionTx(false);
     }
   };
@@ -396,6 +457,17 @@ export default function Auction({ validators }: AuctionProps) {
                     {auctionTxHash}
                   </a>
                 </>
+              )}
+
+              {auctionTxHash && (
+                <Button
+                  onClick={startAuction}
+                  disabled={waitingAuctionTx || !!auctionTxHash}
+                >
+                  {waitingAuctionTx
+                    ? "Waiting for Tx..."
+                    : "Start Auction"}
+                </Button>
               )}
 
               <div class="mt-10 grid grid-cols-1 gap-y-8">
