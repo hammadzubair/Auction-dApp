@@ -1,0 +1,135 @@
+{
+  "preamble": {
+    "title": "aiken-lang/auction",
+    "description": "Aiken contracts for project 'aiken-lang/auction'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.26-alpha+unknown"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "auction.auction",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/auction~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/auction~1Redeemer"
+        }
+      },
+      "compiledCode": "590a5201000032323232323232232323232322322533300a3232323232323232323253330143011301537546006602c6ea802c4c8c8c8c8c8c8c8c8c8c8c8c94c8ccc084c07c03454ccc0854ccc084cc008044dd7180918119baa020153330213375e602e60466ea8081300103d8798000133003300430233754602460466ea8060dd6980b18119baa02014a0294054ccc0840044c94ccc088c080c08cdd50008992999811980f98121baa001132323253330263024375a601c60506ea809454ccc098cdc4240006eb4c038c0a0dd50018a999813191811980599800800991998008009bac301d302a3754603260546ea807d2f5c0444a66605a0042002266600600660600046605c603660586ea8c0bc008004894ccc0ac00452f5c02646605a002660060066602e605e004466605466ebc00400928251302d001153330263370e601e0266eb4c038c0a0dd5001899baf00300114a029405280a50301933029301630273754048660526028604e6ea8090cc0a4c068c09cdd501219814a6103d87a80003302930163027375404866052601a604e6ea80092f5c0603e0026050604a6ea800458c05cc090dd5181398121baa001163300700e4800058584c8c8c8c94ccc094c0880444c94ccc098c090c09cdd5000899192999814181218149baa0011323232533302b533302b3300c01b375c600e605a6ea800c54ccc0accdd7981098169baa02a4c103d87a80001533302b3300d300e302d37546038605a6ea8088dd6981018169baa02a1533302b3375e0060022a66605666e20dd6980998169baa02a375a6026605a6ea800c4cdc3980a9bab301a302d375400a6eb4c04cc0b4dd50018a5014a029405280a501533302b33302b3371e6eb8c01cc0b4dd50019bae3007302d3754054941288a9998159813980780c0992999816181518169baa00113232533302e302a302f375400226464a66606066ebc008c090cc0d0c084c0c8dd50179981a180f98191baa02f3303430253032375405e66068980103d87b800033034300c3032375405e66068603060646ea80bd2f5c0266e1cc068dd5980f98191baa004375a603060646ea80085281815000981998181baa001163022302f37540026062605c6ea800458cc07406130103d87b8000161533302b00b13370e6028660126eb0c080c0b4dd500d9bae3007302d375405466e04cdc099b80300a3300837586038605a6ea806cdd7180398169baa02a375a6026605a6ea80a8dd6980998169baa003301537566042605a6ea806c5858c078cc0b8c06cc0b0dd501499817180c98161baa0293302e301f302c37540526605c98103d87a80003302e3006302c37540046605c602460586ea80092f5c06048002605a60546ea800458c070c0a4dd5000981598141baa00116330170124c0103d87a800015333025302101115333025533302533006015375c6002604e6ea809054ccc094cdd7980d98139baa0244c0103d87b800013023300901214a029404cdc39807198019bac301a3027375402a6eb8c004c09cdd501219b81337006008660046eb0c058c09cdd500a9bae3001302737540486eb4c034c09cdd501218079bab301b3027375402a2c2a66604aa66604a6600c02a6eb8c058c09cdd50120a99981299981299803980418139baa3016302737540386eb4c068c09cdd50122504a22a66604a66ebcc06cc09cdd5012260103d87a8000100514a029405280992999813181218139baa00113253330273023302837540022646466ebc008c074cc0b4c068c0acdd501419816980c18159baa0283302d301e302b37540506605a980103d87c80003302d3005302b37540506605a602260566ea80a12f5c06046002605860526ea800458c06cc0a0dd5181598141baa001163300b01248000588c0a8c0acc0acc0acc0ac00488cc04c00894ccc098c090c09cdd5180b98141baa301730283754602a60506ea80044c94ccc09cc094c0a0dd5000899b8f375c605860526ea800400c58c05cc0a0dd5180b98141baa301530283754002294088cc04800894ccc094c08cc098dd5180b18139baa301630273754002264a66604c6048604e6ea80044cdc79bae302b302837540020062c602c604e6ea8c058c09cdd50008a50233300d0014800088cdc000118071bab3013302637546026604c6ea8004c074c01003488c8cc004004dd618139814181418141814181418141814181418121baa00322533302600114a0264a66604866e3cdd718148010020a51133003003001302900122325333021301e30223754002266e24dd6981318119baa00100214a0602260446ea8c044c088dd500111811981218121812181218121812181200098008009129998100008a4000266e0120023300200230230013001001222533301f00214c103d87a800013232533301e301c00313012330220024bd70099980280280099b8000348004c08c00cc0840088c078c07cc07cc07cc07cc07c0048ccc00c0052000223370000460086eacc024c070dd5000919299980c180a980c9baa0011480004dd6980e980d1baa0013253330183015301937540022980103d87a8000132330010013756603c60366ea8008894ccc074004530103d87a80001323232533301d3371e91100375c603c00626022660426ea00052f5c026600a00a0046eb4c078008c084008c07c004c8cc004004008894ccc0700045300103d87a80001323232533301c3371e91100375c603a00626020660406e980052f5c026600a00a0046eacc074008c080008c078004888c8ccc00400401000c8894ccc07800840044ccc00c00cc084008cc010004c080008c054dd50068a5033223300300223375e600e60306ea8004008dd61804180a9baa0033004301537546004602a6ea8c94ccc050c044c054dd500089919299980b180a180b9baa0011301b301837540022c660106eb0c018c05cdd51803180b9baa00c23375e600e60306ea8004008c064c058dd50008b1801180a9baa00a22323300100100322533301900114bd7009919299980c180280109980e00119802002000899802002000980e801180d8009180b980c000980098091baa0072301500122330030022325333012300e301337540022646466ebcc028c058dd50010029807000980b980a1baa0011630063013375400244646600200200644a666028002298103d87a8000132325333013300500213007330170024bd70099802002000980c001180b0009ba5480008c044c048c0480048c040c044c044c0440045261365632533300930070011533300c300b37540042930b0a99980498030008a99980618059baa00214985854ccc024c01400454ccc030c02cdd50010a4c2c2a66601266e1d20060011533300c300b37540042930b0b18049baa0013001005253330063004300737540022646464646464646464646464a66602a60300042649319299980998088008a99980b180a9baa00614985854ccc04cc04000454ccc058c054dd50030a4c2c2a666026601e0022a66602c602a6ea801852616153330133370e90030008a99980b180a9baa00614985858c04cdd50028b1bad30160013016002375c60280026028004602400260240046eb4c040004c040008dd7180700098070011bae300c001300837540022c6e1d2004370e90011b87480015cd2ab9d5573caae7d5d02ba157441",
+      "hash": "9047b300cbcd3a8fc613af6900ed7a8aa6e03c249402471d37137e9e"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "auction/Datum": {
+      "title": "Datum",
+      "description": "Similar problem here: \n https://plutus-pioneer-program.readthedocs.io/en/latest/pioneer/week1.html#the-english-auction-contract\n Partecipants\n     - Alice                                  // seller\n     - Others (Bob, Charlie, Diane, Eve, ...) // bidders\n Transactions\n     - auction-create\n     - auction-start\n     - auction-bid (bids and raises)\n     - auction-withdraw\n     - auction-end\n Contract states\n     - NOT_STARTED\n     - STARTED\n     - OUTBID\n     - ENDED\n Execution traces\n\n     - Trace 1\n\n         Alice:      *creates the auction*\n                     inputs  = [...]\n                     outputs = [UTXO_AUCTION_000 w/ status=NOT_STARTED|(Alice, 0)]\n\n         Alice:      *starts the auction with a 100 ADA starting bid*\n                     inputs  = [UTXO_AUCTION_000, 100_ADA]\n                     outputs = [UTXO_AUCTION_100 w/ status=STARTED|(Alice, 100)]\n\n         Bob:        *bids 200 ADA*\n                     inputs  = [UTXO_AUCTION_100, 200_ADA]\n                     outputs = [UTXO_AUCTION_200 w/ status=STARTED|(Bob,200), UTXO_RETURN_100 to the contract w/ status=OUTBID]\n\n         Charlie:    *bids 300 ADA*\n                     inputs  = [UTXO_AUCTION_200, 300_ADA]\n                     outputs = [UTXO_AUCTION_300 w/ status=STARTED|(Charlie, 300), UTXO_RETURN_200 to the contract w/ status=OUTBID)\n\n         Alice:      *withdraws her 100 ADA starting bid*\n                     inputs  = [UTXO_RETURN_100]\n                     outputs = [UTXO_ALICE_100]\n\n         Bob:        *withdraws his 200 ADA bid*\n                     inputs  = [UTXO_RETURN_200] \n                     outputs = [UTXO_BOB_200]\n\n         Bob:        *bids 400 ADA*\n                     inputs  = [UTXO_AUCTION_300, 400_ADA]\n                     outputs = [UTXO_AUCTION_400 w/ status=STARTED|(Bob, 400), UTXO_RETURN_300 to the contract w/ status=OUTBID)\n\n         Bob:        *raises to 500 ADA*\n                     inputs  = [UTXO_AUCTION_400, 500_ADA]\n                     outputs = [UTXO_AUCTION_500 w/ status=STARTED|(Bob, 500), UTXO_BOB_400 to Bob himself)\n\n         *deadline*\n\n         Alice:      *closes the the auction*\n                     inputs  = [UTXO_AUCTION_400]\n                     outputs = [UTXO_ALICE_400, UTXO_AUCTION_ENDED w/ status=ENDED|(Bob, 400)]\n\n         Charlie:    *withdraws his 300 ADA bid*\n                     inputs  = [UTXO_RETURN_300]\n                     outputs = [UTXO_CHARLIE_300]\n\n\n        - Trace 2\n\n         Alice:      *creates the auction*\n                     inputs  = [...]\n                     outputs = [UTXO_AUCTION_000 w/ status=NOT_STARTED|(Alice, 0)]\n\n         Alice:      *starts the auction with a 100 ADA starting bid*\n                     inputs  = [UTXO_AUCTION_000, 100_ADA]\n                     outputs = [UTXO_AUCTION_100 w/ status=STARTED|(Alice, 100)]\n\n         *deadline*\n\n         Alice:      *closes the auction*\n                     inputs  = [UTXO_AUCTION_100]\n                     outputs = [UTXO_ALICE_100, UTXO_AUCTION_ENDED w/ status=ENDED|(Alice, 100)]",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "seller",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "object",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "deadline",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "status",
+              "$ref": "#/definitions/auction~1Status"
+            },
+            {
+              "title": "bidder",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "amount",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "auction/Redeemer": {
+      "title": "Redeemer",
+      "anyOf": [
+        {
+          "title": "Start",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "Bid",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        },
+        {
+          "title": "Withdraw",
+          "dataType": "constructor",
+          "index": 2,
+          "fields": []
+        },
+        {
+          "title": "End",
+          "dataType": "constructor",
+          "index": 3,
+          "fields": []
+        }
+      ]
+    },
+    "auction/Status": {
+      "title": "Status",
+      "anyOf": [
+        {
+          "title": "NOT_STARTED",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "STARTED",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        },
+        {
+          "title": "OUTBID",
+          "dataType": "constructor",
+          "index": 2,
+          "fields": []
+        },
+        {
+          "title": "ENDED",
+          "dataType": "constructor",
+          "index": 3,
+          "fields": []
+        }
+      ]
+    }
+  }
+}
